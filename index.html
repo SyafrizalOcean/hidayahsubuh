@@ -49,11 +49,13 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center gap-3">
-                    <div class="bg-white p-1 rounded-full border-2 border-transparent hover:border-hidayah-gold transition-all duration-300">
-                        <img src="Logo Hidayahsubuh.png" alt="Logo Hidayahsubuh" class="h-10 w-10 md:h-12 md:w-12 object-contain rounded-full">
+                    <!-- Tambahkan overflow-hidden disini -->
+                    <div class="bg-white p-1 rounded-full border-2 border-transparent hover:border-hidayah-gold transition-all duration-300 overflow-hidden">
+                        <!-- Ganti object-contain jadi object-cover dan tambahkan scale-125 atau scale-150 -->
+                        <img src="Logo Hidayahsubuh.png" alt="Logo Hidayahsubuh" class="h-12 w-12 md:h-14 md:w-14 object-cover scale-150 rounded-full">
                     </div>
                     <!-- Font dikembalikan seperti awal -->
-                    <span class="font-bold text-xl md:text-2xl tracking-wide font-serif">HIDAYAH subuh</span>
+                    <span class="font-bold text-xl md:text-2xl tracking-wide font-Plus Jakarta Sans">HIDAYAH SUBUH</span>
                 </div>
                 <div class="hidden md:flex space-x-8">
                     <a href="#tentang" class="hover:text-hidayah-gold transition">Tentang Kami</a>
@@ -146,33 +148,35 @@
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Card 1 -->
-                <div class="group bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 reveal">
-                    <div class="h-56 bg-gray-200 flex items-center justify-center text-gray-400 group-hover:bg-hidayah-dark group-hover:text-white transition-colors duration-300">
-                        <i class="fas fa-image text-4xl mb-2"></i>
-                    </div>
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
+                    <!-- FOTO 1 DIMASUKKAN DI SINI -->
+                    <img src="panti2.jpeg" alt="Kegiatan Panti Asuhan" class="w-full h-48 object-cover">
+                    
                     <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2 text-hidayah-dark group-hover:text-green-700 transition-colors">Santunan Panti Asuhan</h3>
+                        <h3 class="font-bold text-xl mb-2 text-hidayah-dark">Berbagi di Panti Asuhan</h3>
                         <p class="text-gray-600 text-sm">Bermain bersama, berbagi cerita, dan memberikan santunan serta kebutuhan pokok untuk anak-anak panti.</p>
                     </div>
                 </div>
+
                 <!-- Card 2 -->
-                <div class="group bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 reveal" style="transition-delay: 100ms;">
-                    <div class="h-56 bg-gray-200 flex items-center justify-center text-gray-400 group-hover:bg-hidayah-dark group-hover:text-white transition-colors duration-300">
-                        <i class="fas fa-image text-4xl mb-2"></i>
-                    </div>
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
+                    <!-- FOTO 2 DIMASUKKAN DI SINI -->
+                    <img src="jalan.jpeg" alt="Berbagi Makanan Jalanan" class="w-full h-48 object-cover">
+                    
                     <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2 text-hidayah-dark group-hover:text-green-700 transition-colors">Berbagi Makanan Jalanan</h3>
-                        <p class="text-gray-600 text-sm">Membagikan paket makan siang/malam bergizi untuk pekerja jalanan, pemulung, dan mereka yang membutuhkan di jalan.</p>
+                        <h3 class="font-bold text-xl mb-2 text-hidayah-dark">Berbagi Makanan di Jalan</h3>
+                        <p class="text-gray-600 text-sm">Membagikan paket sarapan untuk pekerja jalanan, pemulung, dan mereka yang membutuhkan di jalan.</p>
                     </div>
                 </div>
+
                 <!-- Card 3 -->
-                <div class="group bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 reveal" style="transition-delay: 200ms;">
-                    <div class="h-56 bg-gray-200 flex items-center justify-center text-gray-400 group-hover:bg-hidayah-dark group-hover:text-white transition-colors duration-300">
-                        <i class="fas fa-image text-4xl mb-2"></i>
-                    </div>
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
+                    <!-- FOTO 3 DIMASUKKAN DI SINI -->
+                    <img src="takjil.jpeg" alt="Takjil On The Road" class="w-full h-48 object-cover">
+                    
                     <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2 text-hidayah-dark group-hover:text-green-700 transition-colors">Takjil On The Road</h3>
-                        <p class="text-gray-600 text-sm">Kegiatan spesial di bulan Ramadan. Membagikan ribuan paket takjil gratis menjelang waktu berbuka puasa.</p>
+                        <h3 class="font-bold text-xl mb-2 text-hidayah-dark">Takjil On The Road</h3>
+                        <p class="text-gray-600 text-sm">Kegiatan spesial di bulan Ramadan. Membagikan ratusan paket takjil gratis menjelang waktu berbuka puasa.</p>
                     </div>
                 </div>
             </div>
@@ -191,16 +195,16 @@
             <!-- Rekap Saldo -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 reveal">
                 <div class="bg-green-50 rounded-2xl p-6 border border-green-100 text-center hover:shadow-lg transition-shadow">
-                    <p class="text-green-600 font-semibold mb-1">Total Pemasukan Bulan Ini</p>
-                    <h4 class="text-3xl font-bold text-green-700">Rp 2.500.000</h4>
+                    <p class="text-green-600 font-semibold mb-1">Total Pemasukan Ini</p>
+                    <h4 class="text-3xl font-bold text-green-700">Rp 9.444.610</h4>
                 </div>
                 <div class="bg-red-50 rounded-2xl p-6 border border-red-100 text-center hover:shadow-lg transition-shadow">
                     <p class="text-red-600 font-semibold mb-1">Total Pengeluaran Kegiatan</p>
-                    <h4 class="text-3xl font-bold text-red-700">Rp 1.850.000</h4>
+                    <h4 class="text-3xl font-bold text-red-700">Rp 7.937.858</h4>
                 </div>
                 <div class="bg-gradient-to-br from-hidayah-dark to-hidayah-light rounded-2xl p-6 border border-hidayah-light text-center text-white shadow-xl transform md:scale-105">
                     <p class="text-gray-200 font-semibold mb-1">Saldo Kas Saat Ini</p>
-                    <h4 class="text-3xl font-bold text-hidayah-gold">Rp 650.000</h4>
+                    <h4 class="text-3xl font-bold text-hidayah-gold">Rp 1.506.752</h4>
                 </div>
             </div>
 
@@ -264,10 +268,12 @@
                 
                 <!-- Brand & Logo -->
                 <div class="flex flex-col items-center md:items-start text-center md:text-left">
-                    <div class="bg-white p-1 rounded-full border-2 border-transparent mb-4 inline-block">
-                        <img src="Logo Hidayahsubuh.png" alt="Logo" class="h-16 w-16 object-contain rounded-full">
+                    <!-- Tambahkan overflow-hidden disini -->
+                    <div class="bg-white p-1 rounded-full border-2 border-transparent hover:border-hidayah-gold transition-all duration-300 overflow-hidden">
+                        <!-- Ganti object-contain jadi object-cover dan tambahkan scale-125 atau scale-150 -->
+                        <img src="Logo Hidayahsubuh.png" alt="Logo Hidayahsubuh" class="h-12 w-12 md:h-14 md:w-14 object-cover scale-150 rounded-full">
                     </div>
-                    <h2 class="text-2xl font-bold font-serif tracking-wide">HIDAYAH subuh</h2>
+                    <h2 class="text-2xl font-bold font-Plus Jakarta Sans tracking-wide">HIDAYAH SUBUH</h2>
                     <p class="text-gray-400 text-sm mt-2 max-w-xs">Mengalirkan kebaikan dari rutinitas subuh untuk aksi nyata di lapangan.</p>
                 </div>
 
