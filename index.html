@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidayahsubuh - Komunitas Sedekah Subuh</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome untuk Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        'hidayah-dark': '#1c341b', // Warna hijau gelap
+                        'hidayah-light': '#2c4c2a',
+                        'hidayah-gold': '#d4af37',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Utility class untuk animasi JS */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="bg-hidayah-dark text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-3">
+                    <!-- Tambahkan overflow-hidden disini -->
+                    <div class="bg-white p-1 rounded-full border-2 border-transparent hover:border-hidayah-gold transition-all duration-300 overflow-hidden">
+                        <!-- Ganti object-contain jadi object-cover dan tambahkan scale-125 atau scale-150 -->
+                        <img src="Logo Hidayahsubuh.png" alt="Logo Hidayahsubuh" class="h-12 w-12 md:h-14 md:w-14 object-cover scale-150 rounded-full">
+                    </div>
+                    <!-- Font dikembalikan seperti awal -->
+                    <span class="font-bold text-xl md:text-2xl tracking-wide font-Plus Jakarta Sans">HIDAYAH SUBUH</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#tentang" class="hover:text-hidayah-gold transition">Tentang Kami</a>
+                    <a href="#kegiatan" class="hover:text-hidayah-gold transition">Kegiatan</a>
+                    <a href="#faq" class="hover:text-hidayah-gold transition">FAQ</a> <a href="#laporan" class="hover:text-hidayah-gold transition">Transparansi</a>
+                </div>
+                <div class="hidden md:flex items-center gap-3">
+                    <a href="https://chat.whatsapp.com/DM9Lg38yTfJEhdI0Al0Br2?mode=gi_t" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-5 h-10 rounded-full font-semibold transition hover:-translate-y-1 flex items-center justify-center gap-2 shadow-md">
+                        <i class="fab fa-whatsapp text-lg"></i> Gabung Grup WA
+                    </a>
+                    <button onclick="bukaDonasi()" class="bg-hidayah-gold hover:bg-yellow-600 text-white px-5 h-10 rounded-full font-semibold transition hover:-translate-y-1 flex items-center justify-center gap-2 shadow-md">
+                        <i class="fas fa-hand-holding-usd text-lg"></i> Mulai Sedekah
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-hidayah-dark text-white py-20 lg:py-32 overflow-hidden border-b-4 border-hidayah-gold">
+        <div class="absolute inset-0 opacity-10">
+            <svg class="h-full w-full" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="p" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M0 100V50l50-50v50L0 100zm50 0v-50l50-50v50l-50 50z" fill="currentColor"/></pattern></defs><rect width="100%" height="100%" fill="url(#p)"/></svg>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                Awali Hari dengan <br> <span class="text-hidayah-gold">Keberkahan Berbagi</span>
+            </h1>
+            <p class="text-lg md:text-xl mb-10 max-w-2xl mx-auto text-gray-300">
+                Komunitas sosial kemasyarakatan. Mengumpulkan sedekah subuh harian untuk diwujudkan menjadi senyum bagi mereka yang membutuhkan.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="https://chat.whatsapp.com/DM9Lg38yTfJEhdI0Al0Br2?mode=gi_t" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-8 h-14 rounded-full font-bold text-lg transition shadow-lg hover:-translate-y-1 flex items-center justify-center gap-2 w-full sm:w-auto">
+                    <i class="fab fa-whatsapp text-xl"></i> Gabung Grup WA
+                </a>
+                <button onclick="bukaDonasi()" class="bg-hidayah-gold hover:bg-yellow-600 text-white px-8 h-14 rounded-full font-bold text-lg transition shadow-lg hover:-translate-y-1 flex items-center justify-center gap-2 w-full sm:w-auto">
+                    <i class="fas fa-hand-holding-usd text-xl"></i> Mulai Sedekah
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hadist Section -->
+    <section class="py-16 bg-gradient-to-b from-hidayah-gold/10 to-white relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 reveal">
+            <i class="fas fa-quote-left text-4xl text-hidayah-gold opacity-50 mb-4"></i>
+            <h2 class="text-xl md:text-2xl text-hidayah-dark font-medium italic leading-relaxed mb-6">
+                "Tidak ada satu subuh pun yang dialami hamba-hamba Allah kecuali turun kepada mereka dua malaikat. Salah satu di antara keduanya berdoa: 'Ya Allah, berilah ganti bagi orang yang berinfak', sedangkan yang satunya lagi berdoa 'Ya Allah, berilah kerusakan bagi orang yang menahan hartanya'."
+            </h2>
+            <p class="font-bold text-gray-700 text-lg">— HR. Bukhari & Muslim</p>
+        </div>
+    </section>
+
+    <!-- Tentang Section -->
+    <section id="tentang" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl font-bold text-hidayah-dark mb-4">Apa itu Hidayahsubuh?</h2>
+                <div class="h-1 w-20 bg-hidayah-gold mx-auto rounded"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-10 text-center">
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 reveal">
+                    <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Rutinitas Subuh</h3>
+                    <p class="text-gray-600">Mengamalkan anjuran sedekah subuh. Setiap pagi akan ada broadcast pengingat (reminder) di grup WhatsApp komunitas.</p>
+                </div>
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 reveal" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Kolektif & Kekeluargaan</h3>
+                    <p class="text-gray-600">Donasi yang terkumpul dari para anggota akan disatukan. Berapapun nominalnya, jika bersama-sama akan menjadi besar.</p>
+                </div>
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 reveal" style="transition-delay: 200ms;">
+                    <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Aksi Nyata</h3>
+                    <p class="text-gray-600">Dana disalurkan langsung ke lapangan dalam bentuk kegiatan sosial, pembagian makanan, hingga santunan panti asuhan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kegiatan Section -->
+    <section id="kegiatan" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl font-bold text-hidayah-dark mb-4">Jejak Kebaikan Kami</h2>
+                <div class="h-1 w-20 bg-hidayah-gold mx-auto rounded"></div>
+                <p class="mt-4 text-gray-600">Beberapa aktivitas sosial yang rutin kami selenggarakan dari hasil donasi bersama.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
+                    <img src="panti2.jpeg" onclick="bukaGaleri('panti')" alt="Kegiatan Panti Asuhan" class="w-full h-48 object-cover cursor-pointer hover:opacity-80 transition-opacity">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-hidayah-dark">Berbagi di Panti Asuhan</h3>
+                        <p class="text-gray-600 text-sm">Bermain bersama, berbagi cerita, dan memberikan santunan serta kebutuhan pokok untuk anak-anak panti.</p>
+                        <p class="text-xs text-green-600 mt-3 font-semibold cursor-pointer hover:underline" onclick="bukaGaleri('panti')">Lihat Foto Lainnya <i class="fas fa-arrow-right"></i></p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
+                    <img src="jalan.jpeg" onclick="bukaGaleri('jalan')" alt="Berbagi Makanan Jalanan" class="w-full h-48 object-cover cursor-pointer hover:opacity-80 transition-opacity">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-hidayah-dark">Berbagi Makanan di Jalan</h3>
+                        <p class="text-gray-600 text-sm">Membagikan paket sarapan untuk pekerja jalanan, pemulung, dan mereka yang membutuhkan di jalan.</p>
+                        <p class="text-xs text-green-600 mt-3 font-semibold cursor-pointer hover:underline" onclick="bukaGaleri('jalan')">Lihat Foto Lainnya <i class="fas fa-arrow-right"></i></p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
+                    <img src="takjil.jpeg" onclick="bukaGaleri('takjil')" alt="Takjil On The Road" class="w-full h-48 object-cover cursor-pointer hover:opacity-80 transition-opacity">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-hidayah-dark">Takjil On The Road dan Sahur Gratis</h3>
+                        <p class="text-gray-600 text-sm">Kegiatan spesial di bulan Ramadan. Membagikan ratusan paket takjil gratis menjelang waktu berbuka puasa dan makanan sahur.</p>
+                        <p class="text-xs text-green-600 mt-3 font-semibold cursor-pointer hover:underline" onclick="bukaGaleri('takjil')">Lihat Foto Lainnya <i class="fas fa-arrow-right"></i></p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
+                    <img src="jumat.png" onclick="bukaGaleri('jumat')" alt="Jumat Berkah" class="w-full h-48 object-cover cursor-pointer hover:opacity-80 transition-opacity">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-hidayah-dark">Jumat Berkah</h3>
+                        <p class="text-gray-600 text-sm">Membagikan makanan atau kebutuhan pokok setiap hari Jumat untuk menebar keberkahan dan berbagi kebahagiaan dengan sesama.</p>
+                        <p class="text-xs text-green-600 mt-3 font-semibold cursor-pointer hover:underline" onclick="bukaGaleri('jumat')">Lihat Foto Lainnya <i class="fas fa-arrow-right"></i></p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
+                    <img src="f1.jpeg" onclick="bukaGaleri('festival')" alt="Festival Ramadhan" class="w-full h-48 object-cover cursor-pointer hover:opacity-80 transition-opacity">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-hidayah-dark">Festival Ramadhan</h3>
+                        <p class="text-gray-600 text-sm">Rangkaian kegiatan semarak bulan suci, mulai dari kajian, buka puasa bersama, dan bazzar takjil.</p>
+                        <p class="text-xs text-green-600 mt-3 font-semibold cursor-pointer hover:underline" onclick="bukaGaleri('festival')">Lihat Foto Lainnya <i class="fas fa-arrow-right"></i></p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
+                    <img src="sembako.jpeg" onclick="bukaGaleri('sembako')" alt="Berbagi Sembako" class="w-full h-48 object-cover cursor-pointer hover:opacity-80 transition-opacity">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-hidayah-dark">Berbagi Sembako</h3>
+                        <p class="text-gray-600 text-sm">Penyaluran paket sembako berisi kebutuhan pokok sehari-hari kepada keluarga pra-sejahtera, panti asuhan dan masyarakat yang membutuhkan.</p>
+                        <p class="text-xs text-green-600 mt-3 font-semibold cursor-pointer hover:underline" onclick="bukaGaleri('sembako')">Lihat Foto Lainnya <i class="fas fa-arrow-right"></i></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="modal-donasi" class="hidden fixed inset-0 z-[110] bg-black bg-opacity-75 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-8 relative shadow-2xl transform transition-all">
+            <button onclick="tutupDonasi()" class="absolute top-4 right-5 text-gray-400 hover:text-red-500 text-4xl transition">&times;</button>
+            
+            <div class="text-center">
+                <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+                    <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-hidayah-dark mb-2">Salurkan Sedekah Subuh</h3>
+                <p class="text-gray-500 text-sm mb-6">Scan QRIS di bawah ini menggunakan aplikasi M-Banking atau e-Wallet favoritmu.</p>
+                
+                <div class="bg-gray-100 p-2 rounded-2xl mb-6 inline-block border-2 border-gray-200 border-dashed overflow-hidden">
+                    <img src="qris.jpeg" alt="QRIS Hidayahsubuh" class="w-64 h-64 md:w-72 md:h-72 mx-auto object-cover scale-110 origin-center rounded-lg">
+                </div>
+                
+                <div class="flex items-center justify-center gap-4 mb-4">
+                    <div class="h-px bg-gray-300 w-1/4"></div>
+                    <span class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Atau Transfer Manual</span>
+                    <div class="h-px bg-gray-300 w-1/4"></div>
+                </div>
+                
+                <div class="bg-blue-50 text-blue-900 p-4 rounded-xl text-left border border-blue-100">
+                    <p class="text-xs font-bold text-blue-700 uppercase mb-1">BRI</p>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold tracking-wider" id="teks-norek">705001014220537</p>
+                        <button onclick="copyNorek()" class="bg-blue-200 hover:bg-blue-300 text-blue-800 px-4 py-1.5 rounded-lg text-xs font-bold transition">Salin</button>
+                    </div>
+                    <p class="text-sm mt-1 text-gray-600">a.n. Syafrizal Hidayat</p>
+                </div>
+                
+                <p class="text-xs text-center text-gray-400 mt-6 italic">Semoga sedekah subuh Anda diganti dengan pahala dan rezeki yang berlipat ganda. Aamiin.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Transparansi / Laporan Keuangan Section (Dikembalikan ke Tabel + Link Kecil) -->
+    <section id="laporan" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl font-bold text-hidayah-dark mb-4">Transparansi Keuangan</h2>
+                <div class="h-1 w-20 bg-hidayah-gold mx-auto rounded"></div>
+                <p class="mt-4 text-gray-600">Kepercayaan donatur adalah amanah terbesar kami. Berikut adalah update ringkasan kas komunitas.</p>
+            </div>
+
+            <!-- Rekap Saldo -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 reveal">
+                <div class="bg-green-50 rounded-2xl p-6 border border-green-100 text-center hover:shadow-lg transition-shadow">
+                    <p class="text-green-600 font-semibold mb-1">Total Pemasukan</p>
+                    <h4 id="total-pemasukan" class="text-3xl font-bold text-green-700"><i class="fas fa-spinner fa-spin"></i></h4>
+                </div>
+                <div class="bg-red-50 rounded-2xl p-6 border border-red-100 text-center hover:shadow-lg transition-shadow">
+                    <p class="text-red-600 font-semibold mb-1">Total Pengeluaran Kegiatan</p>
+                    <h4 id="total-pengeluaran" class="text-3xl font-bold text-red-700"><i class="fas fa-spinner fa-spin"></i></h4>
+                </div>
+                <div class="bg-gradient-to-br from-hidayah-dark to-hidayah-light rounded-2xl p-6 border border-hidayah-light text-center text-white shadow-xl transform md:scale-105">
+                    <p class="text-gray-200 font-semibold mb-1">Saldo Kas Saat Ini</p>
+                    <h4 id="saldo-kas" class="text-3xl font-bold text-hidayah-gold"><i class="fas fa-spinner fa-spin"></i></h4>
+                </div>
+            </div>
+
+            <!-- Tabel Histori -->
+            <div class="bg-white border border-gray-200 rounded-2xl shadow-md overflow-hidden reveal">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 text-gray-600 text-sm uppercase tracking-wider border-b border-gray-200">
+                                <th class="p-5 font-semibold">Tanggal</th>
+                                <th class="p-5 font-semibold">Keterangan</th>
+                                <th class="p-5 font-semibold text-right">Pemasukan</th>
+                                <th class="p-5 font-semibold text-right">Pengeluaran</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabel-keuangan" class="text-gray-700 divide-y divide-gray-100">
+                            <tr>
+                                <td colspan="4" class="p-5 text-center text-gray-500 font-semibold italic">
+                                    <i class="fas fa-spinner fa-spin mr-2"></i> Sedang memuat data dari Google Spreadsheet...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="mt-4 text-center">
+                <button id="btn-toggle-tabel" onclick="toggleTabel()" class="hidden bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold py-2 px-6 rounded-full transition-colors text-sm border border-slate-300 shadow-sm">
+                    Lihat Lebih Banyak
+                </button>
+            </div>
+            <!-- Link Excel Selengkapnya -->
+            <div class="mt-6 text-center reveal">
+                <a href="https://docs.google.com/spreadsheets/d/1ykPb4nWOl3JAuwpZvoKBmqW5eSgYJ0KkrvdjFaZa3A4/edit?usp=sharing" target="_blank" class="inline-flex items-center justify-center gap-2 text-sm md:text-base text-green-700 hover:text-green-800 hover:bg-green-50 py-2 px-4 rounded-full font-semibold transition-all border border-transparent hover:border-green-200">
+                    <i class="fas fa-file-excel text-green-600 text-lg"></i>
+                    Lihat Laporan Rekapan Selengkapnya di Sini
+                    <i class="fas fa-arrow-right text-xs ml-1"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+            <h2 class="text-3xl font-bold text-hidayah-dark mb-4">Momen Kebaikan Kita</h2>
+            <div class="h-1 w-20 bg-hidayah-gold mx-auto rounded mb-10"></div>
+            
+            <div class="flex justify-center">
+                <div class="w-full max-w-[400px] bg-gray-50 rounded-3xl p-2 shadow-2xl border border-gray-200 transform transition duration-500 hover:scale-105">
+                    <iframe 
+                        class="w-full h-[600px] rounded-2xl"
+                        src="https://www.instagram.com/reel/DVfii0fEbHF/embed" 
+                        frameborder="0" 
+                        scrolling="no" 
+                        allowtransparency="true" 
+                        allow="encrypted-media">
+                    </iframe>
+                </div>
+            </div>
+            
+            <p class="mt-6 text-gray-500 text-sm italic">
+                Tonton dokumentasi lengkap kegiatan kita langsung dari Instagram!
+            </p>
+        </div>
+    </section>
+
+
+    <section id="faq" class="py-20 bg-slate-50 border-t border-gray-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl font-bold text-hidayah-dark mb-4">Pertanyaan Seputar Hidayahsubuh</h2>
+                <div class="h-1 w-20 bg-hidayah-gold mx-auto rounded"></div>
+            </div>
+            
+            <div class="space-y-4 reveal">
+                <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-gray-900 font-bold">
+                        <h2 class="text-lg">Berapa minimal nominal sedekah subuh di sini?</h2>
+                        <span class="relative h-5 w-5 shrink-0 text-hidayah-gold">
+                            <i class="fas fa-plus absolute inset-0 opacity-100 group-open:opacity-0 transition"></i>
+                            <i class="fas fa-minus absolute inset-0 opacity-0 group-open:opacity-100 transition"></i>
+                        </span>
+                    </summary>
+                    <p class="px-6 pb-6 text-gray-600 leading-relaxed">
+                        Tidak ada minimal! Berapapun niatnya, yang paling penting adalah istiqomah (konsisten). Uang Rp 1.000 atau Rp 2.000 pun akan sangat berdampak besar jika dikumpulkan secara kolektif bersama anggota lainnya.
+                    </p>
+                </details>
+
+                <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-gray-900 font-bold">
+                        <h2 class="text-lg">Apakah sedekahnya harus disetor setiap hari?</h2>
+                        <span class="relative h-5 w-5 shrink-0 text-hidayah-gold">
+                            <i class="fas fa-plus absolute inset-0 opacity-100 group-open:opacity-0 transition"></i>
+                            <i class="fas fa-minus absolute inset-0 opacity-0 group-open:opacity-100 transition"></i>
+                        </span>
+                    </summary>
+                    <p class="px-6 pb-6 text-gray-600 leading-relaxed">
+                        Sangat dianjurkan disisihkan setiap subuh untuk mendapat keutamaan doa malaikat. Namun untuk transfernya, kamu bisa menyetorkannya sekaligus secara mingguan atau bulanan agar memudahkan, karena banyak yang terkendala karena jarang membuka hp di waktu subuh. Yang terpenting adalah niatnya.
+                    </p>
+                </details>
+
+                <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-gray-900 font-bold">
+                        <h2 class="text-lg">Bagaimana cara ikut turun langsung ke lapangan?</h2>
+                        <span class="relative h-5 w-5 shrink-0 text-hidayah-gold">
+                            <i class="fas fa-plus absolute inset-0 opacity-100 group-open:opacity-0 transition"></i>
+                            <i class="fas fa-minus absolute inset-0 opacity-0 group-open:opacity-100 transition"></i>
+                        </span>
+                    </summary>
+                    <p class="px-6 pb-6 text-gray-600 leading-relaxed">
+                        Silakan bergabung ke Grup WhatsApp kami! Setiap akan ada kegiatan sosial, pengurus akan memberikan informasi dan membuka pendaftaran relawan bagi siapa saja yang ingin ikut membantu.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+
+
+    <div id="modal-galeri" class="hidden fixed inset-0 z-[100] bg-black bg-opacity-95 flex items-center justify-center">
+        <button onclick="tutupGaleri()" class="absolute top-5 right-5 md:top-10 md:right-10 text-white text-5xl hover:text-gray-400 transition">&times;</button>
+        
+        <button onclick="geserFoto(-1)" class="absolute left-2 md:left-10 text-white text-5xl hover:text-gray-400 p-4 transition">&#10094;</button>
+        
+        <img id="foto-modal-tampil" src="" alt="Galeri Hidayahsubuh" class="max-h-[80vh] max-w-[85vw] object-contain rounded-xl shadow-2xl">
+        
+        <button onclick="geserFoto(1)" class="absolute right-2 md:right-10 text-white text-5xl hover:text-gray-400 p-4 transition">&#10095;</button>
+        
+        <p id="indikator-foto" class="absolute bottom-10 text-white text-lg font-semibold tracking-widest bg-black bg-opacity-50 px-4 py-2 rounded-full"></p>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="bg-hidayah-dark text-white pt-16 pb-8 border-t-4 border-hidayah-gold relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+                
+                <!-- Brand & Logo -->
+                <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                    <!-- Tambahkan overflow-hidden disini -->
+                    <div class="bg-white p-1 rounded-full border-2 border-transparent hover:border-hidayah-gold transition-all duration-300 overflow-hidden">
+                        <!-- Ganti object-contain jadi object-cover dan tambahkan scale-125 atau scale-150 -->
+                        <img src="Logo Hidayahsubuh.png" alt="Logo Hidayahsubuh" class="h-12 w-12 md:h-14 md:w-14 object-cover scale-150 rounded-full">
+                    </div>
+                    <h2 class="text-2xl font-bold font-Plus Jakarta Sans tracking-wide">HIDAYAH SUBUH</h2>
+                    <p class="text-gray-400 text-sm mt-2 max-w-xs">Mengalirkan kebaikan dari rutinitas subuh untuk aksi nyata di lapangan.</p>
+                </div>
+
+                <!-- Kontak Kami -->
+                <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                    <h3 class="text-xl font-bold mb-4 text-hidayah-gold">Hubungi Kami</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-center gap-3 justify-center md:justify-start">
+                            <i class="fas fa-phone text-green-400 w-5"></i> 
+                            <a href="https://wa.me/6285363834049" target="_blank" class="hover:text-white transition">+62 536 383 4049</a>
+                        </li>
+                        <li class="flex items-center gap-3 justify-center md:justify-start">
+                            <i class="fas fa-envelope text-red-400 w-5"></i> 
+                            <a href="mailto:hidayahsubuh.id@gmail.com" class="hover:text-white transition">hidayahsubuh.id@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Sosial Media & Grup -->
+                <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                    <h3 class="text-xl font-bold mb-4 text-hidayah-gold">Ikuti & Gabung</h3>
+                    <div class="flex gap-4 mb-6">
+                        <a href="https://instagram.com/hidayahsubuh.id" target="_blank" class="bg-pink-600 hover:bg-pink-700 text-white w-10 h-10 rounded-full flex items-center justify-center transition hover:-translate-y-1 shadow-md">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@hidayahsubuh.id" target="_blank" class="bg-black border border-gray-600 hover:bg-gray-800 text-white w-10 h-10 rounded-full flex items-center justify-center transition hover:-translate-y-1 shadow-md">
+                            <i class="fab fa-tiktok text-xl"></i>
+                        </a>
+                    </div>
+                    <a href="https://chat.whatsapp.com/DM9Lg38yTfJEhdI0Al0Br2?mode=gi_t" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full font-bold transition hover:-translate-y-1 flex items-center justify-center md:justify-start gap-2 shadow-lg">
+                        <i class="fab fa-whatsapp text-xl"></i> Gabung Grup WA
+                    </a>
+                </div>
+
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-6 text-center text-gray-400 text-sm">
+                <p>&copy; 2026 Komunitas Hidayahsubuh. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script Animasi Scroll (Intersection Observer) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const reveals = document.querySelectorAll('.reveal');
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Optional: Berhenti mengawasi setelah animasi muncul pertama kali
+                        // observer.unobserve(entry.target); 
+                    }
+                });
+            }, {
+                threshold: 0.1, // Elemen mulai dianimasikan saat 10% bagiannya terlihat
+                rootMargin: "0px 0px -50px 0px" // Trigger sedikit sebelum elemen benar-benar masuk layar
+            });
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+        });
+    </script>
+
+    <!-- ========================================== -->
+    <!-- TEMPAT SCRIPT CHATBOT AI GRATIS            -->
+    <!-- (Ganti dengan script dari Tidio/Chatbase)  -->
+    <!-- ========================================== -->
+    <script src='https://www.noupe.com/embed/019e0f6b803c751ea06ff0539e287493888c.js'></script>'></script>
+
+    <script>
+        // Variabel global untuk menyimpan data
+        let semuaData = [];
+        let tampilSemua = false;
+
+        // Fungsi mengubah tulisan "Rp 77.000,00" jadi angka murni untuk dihitung
+        function bersihkanRupiah(str) {
+            if (!str) return 0;
+            // Hilangkan "Rp", titik, dan spasi
+            let cleanStr = str.toString().replace(/Rp/gi, '').replace(/\./g, '').replace(/\s/g, '');
+            // Ubah koma jadi titik desimal
+            cleanStr = cleanStr.replace(',', '.');
+            return parseFloat(cleanStr) || 0;
+        }
+
+        // Fungsi mengubah angka murni kembali jadi format "Rp xxx.xxx"
+        function formatRupiah(angka) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(angka);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const sheetId = '1ykPb4nWOl3JAuwpZvoKBmqW5eSgYJ0KkrvdjFaZa3A4'; 
+            const sheetName = 'Sheet1'; // Pastikan nama Tab Excel benar
+            const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=${sheetName}`;
+
+            fetch(url)
+                .then(response => response.text())
+                .then(text => {
+                    const jsonStr = text.substring(47).slice(0, -2);
+                    const json = JSON.parse(jsonStr);
+
+                    let totalPem = 0;
+                    let totalPeng = 0;
+
+                    if (!json.table.rows || json.table.rows.length === 0) {
+                        document.getElementById('tabel-keuangan').innerHTML = `<tr><td colspan="4" class="p-5 text-center text-gray-500">Belum ada data laporan.</td></tr>`;
+                        return;
+                    }
+
+                    // Ambil semua data dan hitung total
+                    json.table.rows.forEach(row => {
+                        if(row.c && row.c[0] != null) {
+                            const tanggal = row.c[0]?.f || row.c[0]?.v || '-';
+                            const keterangan = row.c[1]?.f || row.c[1]?.v || '-';
+                            const pemasukan = row.c[2]?.f || row.c[2]?.v || '';
+                            const pengeluaran = row.c[3]?.f || row.c[3]?.v || '';
+
+                            // Hitung matematisnya
+                            totalPem += bersihkanRupiah(pemasukan);
+                            totalPeng += bersihkanRupiah(pengeluaran);
+
+                            // Simpan ke array
+                            semuaData.push({tanggal, keterangan, pemasukan, pengeluaran});
+                        }
+                    });
+
+                    // Update Angka di Kartu Saldo HTML
+                    document.getElementById('total-pemasukan').innerText = formatRupiah(totalPem);
+                    document.getElementById('total-pengeluaran').innerText = formatRupiah(totalPeng);
+                    document.getElementById('saldo-kas').innerText = formatRupiah(totalPem - totalPeng);
+
+                    // Balik urutan array agar data TERBARU (paling bawah di Excel) muncul di ATAS web
+                    semuaData.reverse();
+
+                    // Tampilkan ke tabel
+                    renderTabel();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('tabel-keuangan').innerHTML = `<tr><td colspan="4" class="p-5 text-center text-red-500">Gagal memuat data keuangan.</td></tr>`;
+                });
+        });
+
+        // Fungsi menggambar ulang tabel (10 baris vs Semua baris)
+        function renderTabel() {
+            let html = '';
+            // Batasi 10 baris jika tidak tampilSemua
+            let batas = tampilSemua ? semuaData.length : 10;
+            let dataTampil = semuaData.slice(0, batas);
+
+            dataTampil.forEach(d => {
+                html += `
+                    <tr class="hover:bg-gray-50 transition-colors">
+                        <td class="p-5 whitespace-nowrap border-b border-gray-100">${d.tanggal}</td>
+                        <td class="p-5 border-b border-gray-100">${d.keterangan}</td>
+                        <td class="p-5 text-right text-green-600 font-bold border-b border-gray-100">${d.pemasukan ? d.pemasukan : '-'}</td>
+                        <td class="p-5 text-right text-red-600 font-bold border-b border-gray-100">${d.pengeluaran ? d.pengeluaran : '-'}</td>
+                    </tr>
+                `;
+            });
+
+            document.getElementById('tabel-keuangan').innerHTML = html;
+
+            // Atur tombol Buka/Tutup
+            const btn = document.getElementById('btn-toggle-tabel');
+            if (semuaData.length <= 10) {
+                btn.style.display = 'none'; // Sembunyikan tombol jika data kurang dari 10
+            } else {
+                btn.style.display = 'inline-block';
+                btn.innerText = tampilSemua ? 'Tampilkan Lebih Sedikit' : `Lihat Semua Data (${semuaData.length})`;
+            }
+        }
+
+        // Fungsi yang dipanggil saat tombol di-klik
+        function toggleTabel() {
+            tampilSemua = !tampilSemua; // Ubah status true/false
+            renderTabel(); // Refresh tabel
+        }
+    </script>
+
+
+    <script>
+        // 1. DAFTARKAN NAMA-NAMA FOTO KAMU DI SINI
+        // Kalau mau nambah foto, tinggal ketik nama file fotonya di dalam kurung siku sesuai kategorinya, dipisah pakai koma dan tanda kutip.
+        const kumpulanFoto = {
+            'panti': ['panti2.jpeg','main panti.jpeg', 'bagian.jpeg'],
+            'jalan': ['jalan.jpeg'],
+            'takjil': ['takjil.jpeg', 'sahur.JPG'],
+            'jumat': ['jumat.png', 'jumat1.jpeg'],
+            'festival': ['f1.jpeg', 'f2.jpeg', 'f3.jpeg'],
+            'sembako': ['sembako.jpeg', 'sembako2.jpeg']
+        };
+
+        let kategoriSaatIni = '';
+        let indexFotoSaatIni = 0;
+
+        function bukaGaleri(kategori) {
+            kategoriSaatIni = kategori;
+            indexFotoSaatIni = 0; // Mulai dari foto pertama
+            
+            // Tampilkan popup hitam
+            document.getElementById('modal-galeri').classList.remove('hidden');
+            
+            // Kunci layar belakang supaya nggak bisa di-scroll
+            document.body.style.overflow = 'hidden'; 
+            
+            // Tampilkan foto pertama
+            updateTampilanFoto();
+        }
+
+        function tutupGaleri() {
+            document.getElementById('modal-galeri').classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Kembalikan scroll layar utama
+        }
+
+        function geserFoto(arah) {
+            const daftarFoto = kumpulanFoto[kategoriSaatIni];
+            
+            // Maju atau mundur
+            indexFotoSaatIni += arah;
+            
+            // Kalau sudah mentok di akhir, balik ke foto pertama
+            if (indexFotoSaatIni >= daftarFoto.length) {
+                indexFotoSaatIni = 0;
+            } 
+            // Kalau mentok mundur, pergi ke foto terakhir
+            else if (indexFotoSaatIni < 0) {
+                indexFotoSaatIni = daftarFoto.length - 1;
+            }
+            
+            updateTampilanFoto();
+        }
+
+        function updateTampilanFoto() {
+            const daftarFoto = kumpulanFoto[kategoriSaatIni];
+            const namaFileFoto = daftarFoto[indexFotoSaatIni];
+            
+            // Ganti gambar di layar
+            document.getElementById('foto-modal-tampil').src = namaFileFoto;
+            
+            // Update angka teks di bawah (contoh: 2 / 4)
+            document.getElementById('indikator-foto').innerText = `${indexFotoSaatIni + 1} / ${daftarFoto.length}`;
+        }
+
+
+        // Fungsi untuk Buka, Tutup, dan Salin Rekening Donasi
+        function bukaDonasi() {
+            document.getElementById('modal-donasi').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function tutupDonasi() {
+            document.getElementById('modal-donasi').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function copyNorek() {
+            const norek = document.getElementById('teks-norek').innerText;
+            navigator.clipboard.writeText(norek).then(() => {
+                alert("Nomor rekening " + norek + " berhasil disalin!");
+            });
+        }
+    </script>
+
+    
+
+</body>
+</html>
